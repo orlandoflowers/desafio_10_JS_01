@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Macbook Price Calculator</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="./assets/img/1_1000_blue.png" alt="" />
+      <h1>iMac 24" Retina 4.5K</h1>
+      <input id="selector" placeholder="Ingresar cantidad" type="number" />
+      <select class="selectorColor" placeholder="Color">
+        <option value="">Selecciona un color</option>
+        <option value="silver">Plata</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+        <option value="pink">Pink</option>
+      </select>
+      <p class="priceElement">Precio: $1.600.000</p>
+      <button
+        onclick="
+
+        // variable de precio
+        const price= 1600000;
+        // variable de cantidad seleccionada
+        let element_selected= document.querySelector('#selector');
+        // variable de multiplicacion calculada
+        let element_multiply = (element_selected.value * price).toLocaleString('es','CL');
+
+        // variable de concatenacion de precio
+        let calculatedTotal = document.querySelector('.finalTotal');
+        calculatedTotal.textContent = '$' +element_multiply;
+
+        // variable de cantidad calculada
+        let calculatedQuantity = document.querySelector('.finalQuantity');
+        calculatedQuantity.textContent = element_selected.value;
+
+        // variable de identificacion y aplicacion de estilo a circulo
+        let selectedColor = document.querySelector('.selectorColor').value;
+        let circleElement = document.querySelector('.circle');
+      circleElement.style.backgroundColor = selectedColor;
+      "
+      >
+        Calcular precio total
+      </button>
+    </div>
+    <div class="containerTotal">
+      <p>Precio total: <span class="finalTotal"></span></p>
+      <p>Cantidad: <span class="finalQuantity"></span></p>
+      <div class="containerCircle">
+        <p>Color:</p>
+        <div class="circle"></div>
+      </div>
+    </div>
+  </body>
+</html>
